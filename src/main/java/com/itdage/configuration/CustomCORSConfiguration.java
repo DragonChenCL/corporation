@@ -18,24 +18,24 @@ import org.springframework.web.filter.CorsFilter;
 @Component
 public class CustomCORSConfiguration {
 
-    private CorsConfiguration buildConfig() {
-        CorsConfiguration corsConfiguration = new CorsConfiguration();
-        // 允许任何的head头部
-        corsConfiguration.addAllowedHeader("*");
-        // 允许任何域名使用
-        corsConfiguration.addAllowedOrigin("*");
-        // 允许任何的请求方法
-        corsConfiguration.addAllowedMethod("*");
-        corsConfiguration.setAllowCredentials(true);
-        return corsConfiguration;
-    }
-
-    // 添加CorsFilter拦截器，对任意的请求使用
-    @Bean(name = "corsFilter")
-    public CorsFilter corsFilter() {
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", buildConfig());
-        return new CorsFilter(source);
-    }
+//    private CorsConfiguration buildConfig() {
+//        CorsConfiguration corsConfiguration = new CorsConfiguration();
+//        // 允许任何的head头部
+//        corsConfiguration.addAllowedHeader("*");
+//        // 允许任何域名使用
+//        corsConfiguration.addAllowedOrigin("*");
+//        // 允许任何的请求方法
+//        corsConfiguration.addAllowedMethod("*");
+//        corsConfiguration.setAllowCredentials(true);
+//        return corsConfiguration;
+//    }
+//
+//    // 添加CorsFilter拦截器，对任意的请求使用
+//    @Bean(name = "corsFilter")
+//    public CorsFilter corsFilter() {
+//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//        source.registerCorsConfiguration("/**", buildConfig());
+//        return new CorsFilter(source);
+//    }
 
 }
