@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itdage.dao.RoleDao">
+    <resultMap id="BaseResultMap" type="com.itdage.entity.Role">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="des" property="des" jdbcType="VARCHAR"/>
+        <collection property="resourceList" ofType="com.itdage.entity.Resource">
+            <id property="id" column="resource_id"/>
+            <result property="title" column="resource_title"/>
+            <result property="url" column="resource_url"/>
+        </collection>
+    </resultMap>
+
+    <resultMap id="BaseResultMap2" type="com.itdage.entity.Role">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="des" property="des" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, name, des
+    </sql>
+
+    <select id="getListByParam" resultMap="BaseResultMap" parameterType="java.util.Map">
+  SELECT
+    ro.id, ro.name, ro.des, re.id as resource_id, re.title as resource_title, re.url as resource_url
+	from user u
+	LEFT JOIN user_role ur on ur.user_id = u.id
+	LEFT JOIN role ro on ur.role_id = ro.id
+	LEFT JOIN role_resource rr on rr.role_id = ro.id
+	LEFT JOIN resource re on rr.resource_id = re.id
+  where username = #{username,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectAll" resultType="com.itdage.entity.Role">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM role
+    </select>
+
+    <insert id="addRoles" parameterType="java.util.Map">
+        INSERT INTO user_role(user_id, role_id) VALUES
+          <foreach collection="roleIds" item="item" index="index" separator=",">
+              (#{user_id}, #{item.id})
+          </foreach>
+    </insert>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+        DELETE FROM user_role WHERE user_id = #{param}
+    </delete>
+
+</mapper>
