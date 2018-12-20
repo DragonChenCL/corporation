@@ -20,6 +20,7 @@ public class IndexController {
 
     @RequestMapping("/index")
     public String home(HashMap<String, Object> map){
+        map.put("ss", 11);
 
         map.put("username", "wp");
         map.put("username2", "scy");

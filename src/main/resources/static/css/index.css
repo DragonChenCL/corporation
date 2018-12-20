@@ -1,0 +1,13 @@
+.header {
+    width: 100%;
+    height: 30px;
+}
+
+a.linkButton {
+    color: white;
+}
+
+.fontCenter {
+    text-align: center;
+    line-height: 30px;
+}
