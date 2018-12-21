@@ -26,4 +26,14 @@ public class IndexController {
         map.put("username2", "scy");
         return "index";
     }
+    @RequestMapping("/info")
+    public String info(HashMap<String, Object> map){
+        map.put("ss", 11);
+
+        map.put("username", "wp");
+        map.put("username2", "scy");
+        return "info";
+    }
+
+
 }

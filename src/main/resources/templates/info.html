@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>动态传入</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/css/index.css}" media="all">
+    <link rel="stylesheet" th:href="@{/css/index.css}" media="all">
+    <script th:src="@{/layui/layui.js}" charset="utf-8"></script>
+    <script th:src="@{/js/jquery.js}" charset="utf-8"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+</head>
+<body class="layui-bg-gray" style="font-size: 17px;">
+<div class="layui-row">
+    <div class="layui-col-xs1">&nbsp;</div>
+    <div class="layui-col-xs10">
+        <div class="header layui-bg-cyan" style="font-size: 14px;">
+            <div class="layui-row">
+                <div class="layui-col-xs8 fontCenter">
+                    大学生社团管理系统
+                </div>
+                <div class="layui-col-xs3 fontCenter">
+                    <span id="currentDate"></span>
+                </div>
+                <div class="layui-col-xs1 fontCenter">
+                    <a href="#" class="linkButton" style="color: white;">登录</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layui-col-xs1">&nbsp;</div>
+</div>
+<div style="padding: 0px; background-color: #F2F2F2;">
+    <div class="layui-row">
+        <div class="layui-col-xs1">
+            <div>&nbsp;</div>
+        </div>
+        <div class="layui-col-xs3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">平台新闻</h3>
+                </div>
+                <div class="panel-body">
+                    <ul style="padding-left: 20px;">
+                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-xs7" style="background-color: white;">
+            <div class="layui-row">
+                <span style="text-align: right;">首页&gt;新闻网&gt;校园新闻</span>
+                <hr class="layui-bg-cyan">
+                <div>
+                    <ul style="padding-left: 40px;">
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                        <li style="list-style-type: circle; padding-top: 5px;"><a href="#">公告1</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-xs1">
+            <div>&nbsp;</div>
+        </div>
+    </div>
+</div>
+<script>
+    function getDate() {
+        //获取当前时间
+        var date = new Date();
+        //格式化为本地时间格式
+        var date1 = date.toLocaleString();
+        //获取div
+        var div1 = document.getElementById("currentDate");
+        //将时间写入div
+        div1.innerHTML = date1;
+    }
+    //使用定时器每秒向div写入当前时间
+    setInterval("getDate()", 1000);
+</script>
+</body>
+</html>
