@@ -34,4 +34,23 @@ public class ConstantUtil {
     // 权限标识
     public static final String PERMISSION = "permission";
 
+    /*---------------------文章相关状态码--------------------------------*/
+    // 超管--公告
+    public static final String GONGGAO_ADMIN = "1000";
+    // 超管--新闻
+    public static final String NEWS_ADMIN = "1001";
+    // 超管--法律
+    public static final String LEGAL_ADMIN = "1002";
+    // 超管--其他
+    public static final String OTHERS_ADMIN = "1003";
+
+    // 超管--公告
+    public static final String GONGGAO_CORPORATION_ADMIN = "1100";
+    // 超管--新闻
+    public static final String NEWS_CORPORATION_ADMIN = "1101";
+    // 超管--活动
+    public static final String ACTIVITY_CORPORATION_ADMIN = "1102";
+    // 超管--章程
+    public static final String CHAPTER_CORPORATION_ADMIN = "1103";
+
 }

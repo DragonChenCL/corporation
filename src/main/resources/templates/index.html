@@ -56,22 +56,9 @@
                             <div class="layui-card">
                                 <div class="layui-card-header">最新公告</div>
                                 <div class="layui-card-body">
-                                    <ol style="padding-left: 20px;">
-                                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                                        <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                                        <li style="list-style-type: circle"><a href="#">更多&lt;&lt;</a></li>
+                                    <ol style="padding-left: 20px;" th:each="article : ${gongGao}">
+                                        <a th:href="${article.id}"><li style="list-style-type: circle" th:text="${article.title}"></li></a>
+                                        <!--<li style="list-style-type: circle"><a href="#">更多&lt;&lt;</a></li>-->
                                     </ol>
                                 </div>
                             </div>
@@ -91,18 +78,8 @@
                         <h3 class="panel-title">平台新闻</h3>
                     </div>
                     <div class="panel-body">
-                        <ul style="padding-left: 20px;">
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
+                        <ul style="padding-left: 20px;" th:each="news : ${news}">
+                            <a th:href="${news.id}"><li style="list-style-type: circle" th:text="${news.title}"></li></a>
                         </ul>
                     </div>
                 </div>
@@ -113,18 +90,8 @@
                         <h3 class="panel-title">法律法规</h3>
                     </div>
                     <div class="panel-body">
-                        <ul style="padding-left: 20px;">
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
+                        <ul style="padding-left: 20px;" th:each="legal : ${legal}">
+                            <a th:href="${legal.id}"><li style="list-style-type: circle" th:text="${legal.title}"></li></a>
                         </ul>
                     </div>
                 </div>
@@ -135,18 +102,8 @@
                         <h3 class="panel-title">其他事项</h3>
                     </div>
                     <div class="panel-body">
-                        <ul style="padding-left: 20px;">
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">公告1</a></li>
-                            <li style="list-style-type: circle"><a href="#">更多</a></li>
+                        <ul style="padding-left: 20px;" th:each="others : ${others}">
+                            <a th:href="${others.id}"><li style="list-style-type: circle" th:text="${others.title}"></li></a>
                         </ul>
                     </div>
                 </div>
