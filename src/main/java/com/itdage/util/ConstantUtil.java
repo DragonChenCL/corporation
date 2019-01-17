@@ -33,6 +33,8 @@ public class ConstantUtil {
     public static final String ROLE = "role";
     // 权限标识
     public static final String PERMISSION = "permission";
+    // 请求失败
+    public static final int FAILED = 400;
 
     /*---------------------文章相关状态码--------------------------------*/
     // 超管--公告

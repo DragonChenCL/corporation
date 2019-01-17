@@ -30,26 +30,13 @@
         <div class="layui-bg-cyan">
             <div class="layui-row">
                 <ul class="layui-nav">
-                    <li class="layui-nav-item"><a href="">最新活动</a></li>
-                    <li class="layui-nav-item layui-this">
-                        <a href="javascript:;">产品</a>
-                        <dl class="layui-nav-child">
-                            <dd><a href="">选项1</a></dd>
-                            <dd><a href="">选项2</a></dd>
-                            <dd><a href="">选项3</a></dd>
-                        </dl>
-                    </li>
-                    <li class="layui-nav-item"><a href="">大数据</a></li>
-                    <li class="layui-nav-item">
-                        <a href="javascript:;">解决方案</a>
-                        <dl class="layui-nav-child">
-                            <dd><a href="">移动模块</a></dd>
-                            <dd><a href="">后台模版</a></dd>
-                            <dd class="layui-this"><a href="">选中项</a></dd>
-                            <dd><a href="">电商平台</a></dd>
-                        </dl>
-                    </li>
-                    <li class="layui-nav-item"><a href="">社区</a></li>
+                    <li class="layui-nav-item" id="type_all"><a href="javascript:void(0)" onclick="link()">首页</a></li>
+                    <li class="layui-nav-item" id="type_1000"><a href="javascript:void(0)" onclick="link('gongGao')">公告</a></li>
+                    <li class="layui-nav-item" id="type_1001"><a href="javascript:void(0)" onclick="link('news')">新闻</a></li>
+                    <li class="layui-nav-item" id="type_1002"><a href="javascript:void(0)" onclick="link('legal')">法律法规</a></li>
+                    <li class="layui-nav-item" id="type_1003"><a href="javascript:void(0)" onclick="link('other')">其他</a></li>
+                    <li class="layui-nav-item"><a href="javascript:void(0)" onclick="link()">关于我们</a></li>
+                    <li class="layui-nav-item"><a href="javascript:void(0)" onclick="link()">联系我们</a></li>
                 </ul>
             </div>
         </div>
@@ -115,12 +102,19 @@
                                         <span th:if="${legal.type} == 1003">
                                             <span class="layui-badge layui-bg-blue" th:text="${legal.typeName}"></span>
                                         </span>
-                                        <a th:href="${legal.id}"><span th:text="${legal.title} + ${legal.id}" style="font-size: 16px; font-weight: bold; color: #009688"></span></a></div>
+                                        <a th:href="${'/article' + legal.id}"><span
+                                                th:text="${legal.title} + ${legal.id}"
+                                                style="font-size: 16px; font-weight: bold; color: #009688"></span></a>
+                                    </div>
                                     <!--<div class="layui-row"><span th:text="${legal.author}"></span></div>-->
-                                    <div class="layui-row" style="height:60px;"><span th:utext="${legal.subContent}"></span></div>
+                                    <div class="layui-row" style="height:60px;"><span
+                                            th:utext="${legal.subContent}"></span></div>
                                     <div class="layui-row">
                                         <div class="layui-col-md4">&nbsp;</div>
-                                        <div class="layui-col-md8">作者:<span th:text="${legal.author}" style="color: black"></span>&nbsp;&nbsp;发布时间:<span th:text="${legal.publishDate}" style="color: black"></span>&nbsp;&nbsp;浏览量:<span th:text="100" style="color: black"></span></div>
+                                        <div class="layui-col-md8">作者:<span th:text="${legal.author}"
+                                                                            style="color: black"></span>&nbsp;&nbsp;发布时间:<span
+                                                th:text="${legal.publishDate}" style="color: black"></span>&nbsp;&nbsp;浏览量:<span
+                                                th:text="100" style="color: black"></span></div>
                                     </div>
                                 </div>
                             </div>
@@ -192,19 +186,32 @@
     //使用定时器每秒向div写入当前时间
     //    setInterval("getDate()", 1000);
 
-    layui.use(['laypage', 'layer'], function(){
+    layui.use(['laypage', 'layer'], function () {
         var laypage = layui.laypage
-            ,layer = layui.layer;
-
+            , layer = layui.layer;
         //总页数大于页码总数
         laypage.render({
             elem: 'demo1'
-            ,count: 70 //数据总数
-            ,jump: function(obj){
+            , count: 70 //数据总数
+            , jump: function (obj) {
                 console.log(obj)
             }
         });
     });
+    function link(type, currentPage) {
+//        $.ajax({
+//            url:"/manage/home/others",
+//            type:"post",
+//            data:JSON.stringify({"type": type, "currentPage": currentPage}),
+//            dataType:"json",
+//            contentType: "application/json",
+//            success:function(data){
+//                alert(data)
+//            },
+//            error:function(xhr){}
+//        });
+        window.location.href = "/manage/home/" + type
+    }
 </script>
 </body>
 </html>
