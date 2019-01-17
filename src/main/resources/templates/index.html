@@ -12,40 +12,57 @@
     <script th:src="@{/layui/layui.js}" charset="utf-8"></script>
     <script th:src="@{/js/jquery.js}" charset="utf-8"></script>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
     <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"-->
+    <!--integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"-->
+    <!--integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"-->
+    <!--crossorigin="anonymous"></script>-->
 </head>
 <body class="layui-bg-gray">
 <div class="layui-row">
-    <div class="layui-col-xs1">&nbsp;</div>
-    <div class="layui-col-xs10">
-        <!-- 头部部分-->
-        <div class="header layui-bg-cyan">
+    <!--页面左边距-->
+    <div class="layui-col-xs2">&nbsp;</div>
+    <div class="layui-col-xs8">
+        <!-- 头部导航部分-->
+        <div class="layui-bg-cyan">
             <div class="layui-row">
-                <div class="layui-col-xs8 fontCenter">
-                    大学生社团管理系统
-                </div>
-                <div class="layui-col-xs3 fontCenter">
-                    <span id="currentDate"></span>
-                </div>
-                <div class="layui-col-xs1 fontCenter">
-                    <a href="#" class="linkButton" style="color: white; text-align: right; margin-right: 10px;">登录</a>
-                </div>
+                <ul class="layui-nav">
+                    <li class="layui-nav-item"><a href="">最新活动</a></li>
+                    <li class="layui-nav-item layui-this">
+                        <a href="javascript:;">产品</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="">选项1</a></dd>
+                            <dd><a href="">选项2</a></dd>
+                            <dd><a href="">选项3</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item"><a href="">大数据</a></li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">解决方案</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="">移动模块</a></dd>
+                            <dd><a href="">后台模版</a></dd>
+                            <dd class="layui-this"><a href="">选中项</a></dd>
+                            <dd><a href="">电商平台</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item"><a href="">社区</a></li>
+                </ul>
             </div>
         </div>
         <!-- body部分 -->
         <div class="layui-row">
             <div class="layui-col-xs8">
-                <div class="layui-carousel" id="test1"  style="padding-top: 10px;">
+                <div class="layui-carousel" id="test1" style="padding-top: 10px;">
                     <div carousel-item>
-                        <div><img th:src="@{/image/lunbo01.jpg}" width="100%" height="450px"/></div>
-                        <div><img th:src="@{/image/lunbo02.jpg}" width="100%" height="450px"/></div>
-                        <div><img th:src="@{/image/lunbo03.jpg}" width="100%" height="450px"/></div>
-                        <div><img th:src="@{/image/lunbo04.jpg}" width="100%" height="450px"/></div>
-                        <div><img th:src="@{/image/lunbo05.jpg}" width="100%" height="450px"/></div>
+                        <div><img th:src="@{/image/lunbo01.jpg}" width="100%" height="300px"/></div>
+                        <div><img th:src="@{/image/lunbo02.jpg}" width="100%" height="300px"/></div>
+                        <div><img th:src="@{/image/lunbo03.jpg}" width="100%" height="300px"/></div>
+                        <div><img th:src="@{/image/lunbo04.jpg}" width="100%" height="300px"/></div>
+                        <div><img th:src="@{/image/lunbo05.jpg}" width="100%" height="300px"/></div>
                     </div>
                 </div>
             </div>
@@ -57,7 +74,9 @@
                                 <div class="layui-card-header">最新公告</div>
                                 <div class="layui-card-body">
                                     <ol style="padding-left: 20px;" th:each="article : ${gongGao}">
-                                        <a th:href="${article.id}"><li style="list-style-type: circle" th:text="${article.title}"></li></a>
+                                        <a th:href="${article.id}">
+                                            <li style="list-style-type: circle" th:text="${article.title}"></li>
+                                        </a>
                                         <!--<li style="list-style-type: circle"><a href="#">更多&lt;&lt;</a></li>-->
                                     </ol>
                                 </div>
@@ -66,71 +85,95 @@
                     </div>
                 </div>
             </div>
-    </div>
-    <!-- 卡片-->
-    <!--<div class="layui-row">-->
-    <!--<div class="layui-col-xs12">-->
-    <div style="padding: 20px; background-color: #F2F2F2;">
-        <div class="layui-row layui-col-space15">
-            <div class="layui-col-md4">
-                <div class="panel panel-success">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">平台新闻</h3>
-                    </div>
-                    <div class="panel-body">
-                        <ul style="padding-left: 20px;" th:each="news : ${news}">
-                            <a th:href="${news.id}"><li style="list-style-type: circle" th:text="${news.title}"></li></a>
-                        </ul>
-                    </div>
+        </div>
+        <!-- 卡片-->
+        <div style=" background-color: #F2F2F2;">
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-md8">
+                    <ul th:each="legal : ${legal}">
+                        <li class="layui-anim layui-anim-up"
+                            style="margin-top: 10px; background-color: white; height: 100px">
+                            <div class="layui-row">
+                                <!--<div class="layui-col-md4">-->
+                                <!--<img th:src="@{/image/test.jpg}" th:height="100px" th:width="200px" class="layui-circle">-->
+                                <!--</div>-->
+                                <div class="layui-col-md12">
+                                    <div class="layui-row">
+                                        <!--公告-->
+                                        <span th:if="${legal.type} == 1000">
+                                            <span class="layui-badge layui-bg-green" th:text="${legal.typeName}"></span>
+                                        </span>
+                                        <!--新闻-->
+                                        <span th:if="${legal.type} == 1001">
+                                            <span class="layui-badge layui-bg-cyan" th:text="${legal.typeName}"></span>
+                                        </span>
+                                        <!--法律法规-->
+                                        <span th:if="${legal.type} == 1002">
+                                            <span class="layui-badge" th:text="${legal.typeName}"></span>
+                                        </span>
+                                        <!--法律其他-->
+                                        <span th:if="${legal.type} == 1003">
+                                            <span class="layui-badge layui-bg-blue" th:text="${legal.typeName}"></span>
+                                        </span>
+                                        <a th:href="${legal.id}"><span th:text="${legal.title} + ${legal.id}" style="font-size: 16px; font-weight: bold; color: #009688"></span></a></div>
+                                    <!--<div class="layui-row"><span th:text="${legal.author}"></span></div>-->
+                                    <div class="layui-row" style="height:60px;"><span th:utext="${legal.subContent}"></span></div>
+                                    <div class="layui-row">
+                                        <div class="layui-col-md4">&nbsp;</div>
+                                        <div class="layui-col-md8">作者:<span th:text="${legal.author}" style="color: black"></span>&nbsp;&nbsp;发布时间:<span th:text="${legal.publishDate}" style="color: black"></span>&nbsp;&nbsp;浏览量:<span th:text="100" style="color: black"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="layui-row" id="demo1" style="float: right"></div>
                 </div>
-            </div>
-            <div class="layui-col-md4">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">法律法规</h3>
+                <div class="layui-col-md4">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">其他事项</h3>
+                        </div>
+                        <div class="panel-body">
+                            <ul style="padding-left: 20px;" th:each="others : ${others}">
+                                <a th:href="${others.id}">
+                                    <li style="list-style-type: circle" th:text="${others.title}"></li>
+                                </a>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="panel-body">
-                        <ul style="padding-left: 20px;" th:each="legal : ${legal}">
-                            <a th:href="${legal.id}"><li style="list-style-type: circle" th:text="${legal.title}"></li></a>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="layui-col-md4">
-                <div class="panel panel-danger">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">其他事项</h3>
-                    </div>
-                    <div class="panel-body">
-                        <ul style="padding-left: 20px;" th:each="others : ${others}">
-                            <a th:href="${others.id}"><li style="list-style-type: circle" th:text="${others.title}"></li></a>
-                        </ul>
-                    </div>
+                    sss
                 </div>
             </div>
         </div>
-    </div>
-    <!--</div>-->
-    <!--</div>-->
 
-    <!--底部 -->
-    <div class="layui-row layui-bg-cyan">
-        <div class="layui-col-xs12">
-            sss
+        <!--底部 -->
+        <div class="layui-row layui-bg-cyan">
+            <div class="layui-col-xs12">
+                sss
+            </div>
         </div>
     </div>
-</div>
-<div class="layui-col-xs1">&nbsp;</div>
+    <!--右侧空白-->
+    <div class="layui-col-xs2">&nbsp;</div>
 </div>
 
 <script>
+    layui.use('element', function () {
+        var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+        //监听导航点击
+        element.on('nav(demo)', function (elem) {
+            //console.log(elem)
+            layer.msg(elem.text());
+        });
+    });
     layui.use('carousel', function () {
         var carousel = layui.carousel;
         //建造实例
         carousel.render({
             elem: '#test1'
             , width: '100%' //设置容器宽度
-            , height: '450px'
+            , height: '300px'
             , arrow: 'always' //始终显示箭头
             , interval: '5000' //轮播时间
             //,anim: 'updown' //切换动画方式
@@ -147,7 +190,21 @@
         div1.innerHTML = date1;
     }
     //使用定时器每秒向div写入当前时间
-    setInterval("getDate()", 1000);
+    //    setInterval("getDate()", 1000);
+
+    layui.use(['laypage', 'layer'], function(){
+        var laypage = layui.laypage
+            ,layer = layui.layer;
+
+        //总页数大于页码总数
+        laypage.render({
+            elem: 'demo1'
+            ,count: 70 //数据总数
+            ,jump: function(obj){
+                console.log(obj)
+            }
+        });
+    });
 </script>
 </body>
 </html>

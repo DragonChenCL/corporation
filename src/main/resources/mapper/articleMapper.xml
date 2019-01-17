@@ -17,7 +17,7 @@
     </sql>
 
     <sql id="Base_Column_List_alias">
-        art.id, art.title, art.author, DATE_FORMAT(art.publish_date,'%Y-%m-%d %H:%i:%s') AS publish_date, SUBSTR(art.content,1,30) as subContent, art.content, art.type
+        art.id, art.title, art.author, DATE_FORMAT(art.publish_date,'%Y-%m-%d %H:%i:%s') AS publish_date, SUBSTR(art.content,1,90) as subContent, art.content, art.type
     </sql>
 
     <select id="getListByParam" resultMap="BaseResultMap" parameterType="java.util.Map">
